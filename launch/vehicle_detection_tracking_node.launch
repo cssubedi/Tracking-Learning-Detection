@@ -1,0 +1,10 @@
+<launch>
+	<arg name="veh" doc="Name of vehicle. ex: megaman"/>
+	<arg name="local" default="true" doc="true for running everything you possibly can on laptop. false for everything running on vehicle."/>
+	<arg name="pkg_name" value="vehicle_detection_tracking"/>
+	<arg name="node_name" default="vehicle_detection_tracking_node"/>
+
+	<group ns="$(arg veh)">        
+        <node if="$(arg local)" name="vehicle_detection_tracking_node" pkg="$(arg pkg_name)" type="$(arg node_name).py" output="screen" />
+	</group>
+</launch>	
